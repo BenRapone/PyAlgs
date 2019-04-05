@@ -1,26 +1,40 @@
 import numpy as np
-import random
 
-def Merge_InvCount(x,y,count):
+def InvCount_Merge(x,y,count):
 	nx = len(x)
 	ny = len(y)
-	if ny == 0:
-		return x, count
-	if nx == 0:
-		return y, count
-	if x[0] <= y[0]:
-		lx, lcount = Merge_InvCount(x[1:nx],y,count)
-		return np.concatenate((x[0], lx), axis=None), lcount
-	else:
-		ly, lcount = Merge_InvCount(x,y[1:ny],count+nx)
-		return np.concatenate((y[0],ly), axis=None), lcount
+	i = 0
+	j = 0
+	bx = []
+	n = nx+ny
 
-def MergeSort_InvCount(x,count=0):
+	for k in range(n):
+		if nx - i == 0:
+			bx.append(y[j])
+			j += 1
+		elif ny - j ==0:
+			bx.append(x[i])
+			i += 1
+		elif x[i] <= y[j]:
+			bx.append(x[i])
+			i += 1
+		else:
+			bx.append(y[j])
+			j += 1
+			count +=  nx-i
+	return bx, count
+
+
+def InvCount(x, count =0):
 	n = len(x)
 	if n >1:
-		xl, nl = MergeSort_InvCount(x[0:n//2],count)
-		xh, nh = MergeSort_InvCount(x[n//2:n],count)
-		return Merge_InvCount(xl,xh,nl+nh)
+		xx, nx = InvCount(x[0:n//2],count)
+		xy, ny = InvCount(x[n//2:n],count)
+		return InvCount_Merge(xx,xy,nx+ny)
+		
 	else:
 		return x, count
+
+
+
 
