@@ -1,5 +1,3 @@
-import numpy as np
-
 def Merge(x,y):
 	nx = len(x)
 	ny = len(y)

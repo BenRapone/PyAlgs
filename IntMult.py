@@ -1,6 +1,5 @@
-
-
 def KaratMult(x,y):
+	"""Karat Mult recursively defined"""
 	if len(str(x)) < 3 or len(str(y)) < 3:
 		return x*y
 

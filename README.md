@@ -1,4 +1,4 @@
 # PyAlgs
-Bank of Algorithms for Python
-Mostly finished code but some need modification. 
-Take what you will.
+Bank of Simple Algorithms for Python
+Coding based on Stanford Alg. course
+Take what you will, no gaurantees.

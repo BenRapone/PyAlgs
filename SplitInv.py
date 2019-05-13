@@ -1,6 +1,7 @@
 import numpy as np
 
 def InvCount_Merge(x,y,count):
+	"""Inversion counter piggy back on merge sort"""
 	nx = len(x)
 	ny = len(y)
 	i = 0
